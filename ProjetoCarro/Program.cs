@@ -2,45 +2,89 @@
 
 class Program
 {
+    
     static void Main(string[] args)
     {
-       //Adicionar Novo Carro
-       //Ver carros adicionados
-       //Excluir Carro
-       //Atualizar carro
+        List<string> lista_carros = new List<string>();
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("(1) - Novo Carro ");
+            Console.WriteLine("(2) - Ver Carros");
+            Console.WriteLine("(3) - Remover Carro");
+            Console.WriteLine("(0) - Sair");
+            int menu =  int.Parse(Console.ReadLine());
+            if (menu == 0) break;
+            switch (menu)
+            {
+                case 1:
+                    NovoCarro(lista_carros);
+                    break;
+                case 2:
+                    MostrarCarros(lista_carros);
+                    break;
+                case 3:
+                    RemoverCarro(lista_carros);
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida.");
+                    break;
+            }
+            Console.ReadKey();
+        }
+
+    }
+
+    static void NovoCarro(List<string> carros)
+    {
+        Console.WriteLine("Digite o modelo do carro: ");
+        string modelo =   Console.ReadLine();
+        carros.Add(modelo);
+    }
+
+    static void MostrarCarros(List<string> carros)
+    {
+        Console.WriteLine("****** CARROS *****\n");
+        for (var i = 0; i < carros.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {carros[i]}");
+        }
+        Console.WriteLine();
+    }
+    static void RemoverCarro(List<string> carros)
+    {
+        MostrarCarros(carros);
+        Console.WriteLine("Digite o modelo do carro: ");
+        string modelo =  Console.ReadLine();
+        
+        if(carros.Contains(modelo))        
+        {
+            Console.WriteLine("Deseja Excluir o registro? s/n");
+            string excluido = Console.ReadLine().ToLower();
+            switch (excluido)
+            {
+                case "s":
+                    carros.Remove(modelo);
+                    Console.WriteLine("Carro removido com sucesso!");
+                    break;
+                case "n":
+                    Console.WriteLine("Operação cancelada.");
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida.");
+                    break;
+            }
+                
+        }
+        else
+        {
+            Console.WriteLine("Modelo nao encontrado");
+        }
+            
+    }
       
-       
-       
-       
-
-      
-       
     }
+    
 
-   static void somar(int n1, int n2)
-    {
-        Console.WriteLine(n1 + n2);
-    }
-
-    static void mensagem(string nome, string mensagem)
-    {
-        Console.WriteLine("Bem vindo(a), " + nome);
-        Console.WriteLine("Mensagem do dia: " + mensagem);
-    }
-
-    static void enviarNotificacao(string mensagem, int tipo)
-    {
-        if(tipo == 1)
-        {
-            Console.WriteLine("Notificação por sms: " + mensagem);
-        }
-        else if (tipo == 2)
-        {
-            Console.WriteLine("Notificacao pelo email" + mensagem);
-        }
-        else if (tipo == 3)
-        {
-            Console.WriteLine("Notificacao por correio: " + mensagem);
-        }
-    }
-}
+   

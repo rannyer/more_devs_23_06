@@ -12,3 +12,4 @@
 /Users/rannyer/RiderProjects/Projeto02/ProjetoCarro/obj/Debug/net10.0/ProjetoCarro.pdb
 /Users/rannyer/RiderProjects/Projeto02/ProjetoCarro/obj/Debug/net10.0/ProjetoCarro.genruntimeconfig.cache
 /Users/rannyer/RiderProjects/Projeto02/ProjetoCarro/obj/Debug/net10.0/ref/ProjetoCarro.dll
+/Users/rannyer/RiderProjects/Projeto02/ProjetoCarro/obj/Debug/net10.0/ProjetoCarro.sourcelink.json
